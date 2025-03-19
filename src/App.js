@@ -88,6 +88,11 @@ function App() {
             return true
 
         }
+
+        if (grid.every(row => row.every(v => v != null))) {
+            return true
+        }
+
         return false
     }
 

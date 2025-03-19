@@ -1,38 +1,63 @@
+:root {
+    --blue: #43a2b9;
+    --red: #dd3030;
+}
+
 .App {
-  text-align: center;
+    height: 100vh;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1,
+h2,
+h3 {
+    margin: 0
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+    border-style: none;
+    color: white;
+    background-color: var(--blue);
+    transition: 0.25s background-color ease-in-out;
+    font-size: 1.25em;
+    padding: 5px 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button:hover {
+    background-color: #3b8a9e;
 }
 
-.App-link {
-  color: #61dafb;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    width: 40vh;
+    height: 40vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid>.Tile {
+    padding: 10px;
+    border: 2px solid white;
+}
+
+.Tile {
+    font-size: 1.5em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+.blue {
+    color: var(--blue);
+}
+
+.red {
+    color: var(--red)
 }

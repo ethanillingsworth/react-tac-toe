@@ -1,6 +1,6 @@
 import './App.css';
+import Column from './Column';
 import Tile from './Tile'
-
 import React, { useState } from 'react';
 
 
@@ -107,23 +107,25 @@ function App() {
 
     return (
         <div className="App">
-            <h1><span className='blue'>React</span>-Tac-Toe</h1>
-            <h2>X - {xWins} | O - {oWins}</h2>
-            <h2>{currentTurn}'s Turn</h2>
+            <Column id="left">
+                <h1><span className='blue'>React</span>-Tac-Toe</h1>
 
-            <div className='grid'>
-                {
-                    // setup grid
-                    [...Array(3)].map((_, row) => (
-                        [...Array(3)].map((_, col) => (
-                            <Tile currentTurn={currentTurn} onTileClick={handleTileClick} col={col} row={row} grid={grid} updateGrid={setPos} disabled={disabled} key={col + row} />
+                {disabled ? <button onClick={resetGrid}>New Game</button> : null}
+            </Column>
+            <Column>
+                <h2><span className='blue'>X</span> - {xWins} | <span className='red'>O</span> - {oWins}</h2>
+                <h2>{currentTurn}'s Turn</h2>
+                <div className='grid'>
+                    {
+                        // setup grid
+                        [...Array(3)].map((_, row) => (
+                            [...Array(3)].map((_, col) => (
+                                <Tile currentTurn={currentTurn} onTileClick={handleTileClick} col={col} row={row} grid={grid} updateGrid={setPos} disabled={disabled} key={col + row} />
+                            ))
                         ))
-                    ))
-                }
-            </div>
-            {
-                disabled ? <button onClick={resetGrid}>New Game</button> : null
-            }
+                    }
+                </div>
+            </Column>
 
         </div>
     );

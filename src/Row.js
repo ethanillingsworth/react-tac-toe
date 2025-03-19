@@ -1,5 +1,5 @@
-function Row({ props, children }) {
-    return (<div className="Row" id={props.id}>
+function Row({ children }) {
+    return (<div className="Row">
         {children}
     </div>)
 }
